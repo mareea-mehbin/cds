@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'upload',
     'contactus',
     'accounts',
+    'criminals',
 ]
 
 MIDDLEWARE = [
