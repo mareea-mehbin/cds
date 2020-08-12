@@ -23,4 +23,5 @@ urlpatterns = [
     path('upload/', include('upload.urls')),
     path('contact/', include('contactus.urls')),
     path('login/', include('accounts.urls'), name='login'),
+    path('criminals/', include('criminals.urls'), name='disp'),
 ]

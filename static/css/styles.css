@@ -125,3 +125,12 @@ body {
 
 
 /* END LOGIN CSS */
+
+
+/* CRIMINAL CARDS DISPLAY */
+
+.card {
+    display: flex;
+}
+
+/* END CRIMINAL CARDS DISPLAY */
