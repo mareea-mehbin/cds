@@ -10,13 +10,6 @@ body {
     background-color: #1976d2;
 }
 
-.ptitle {
-    margin: 0;
-    font-size: 40px;
-    color: white;
-}
-
-
 .btn {
     border-color: #fcfcfc;
 }
@@ -48,6 +41,7 @@ body {
 
 .btn {
     margin-right: 8px;
+    margin-top: 5px;
 }
 
 
