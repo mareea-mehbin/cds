@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'bg4@tjc3(uhje(7eh!_-r7m-$(w15pw%ogjde0))-p0$=_l@)m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['criminaldbms.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['criminaldbms.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
