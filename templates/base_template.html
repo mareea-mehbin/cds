@@ -24,7 +24,7 @@
             <a class="nav-link" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Upload</a>
+            <a class="nav-link" href=" {% url 'upload' %} ">Upload</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact Us</a>
@@ -40,7 +40,13 @@
             <a class="nav-link" href="{% url 'accounts:login' %}"> Sign In </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"> Sign Up </a>
+            <a class="nav-link" href=" {% url 'accounts:signup' %} "> Sign Up </a>
+          </li>
+          <li class="nav-item">
+            <form action=" {% url 'accounts:logout'%} " method="POST">
+              {% csrf_token %}
+              <input type="submit" value="Logout">
+            </form>
           </li>
         </ul>
       </div>

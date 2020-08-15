@@ -1,0 +1,25 @@
+{% extends 'base_template.html' %}
+
+{% block title %} Registration {% endblock %}
+
+{% block content %}
+
+<div class="sidenav">
+   <div class="login-main-text">
+      <h2>Application<br> Registration Page</h2>
+      <p>Register from here to access.</p>
+   </div>
+</div>
+<div class="main">
+   <div class="col-md-6 col-sm-12">
+      <div class="login-form">
+         <form action="{% url 'accounts:signup' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Sign Up">
+         </form>
+      </div>
+   </div>
+</div>
+
+{% endblock %}
