@@ -41,9 +41,10 @@ body {
     border-color: black;
 }
 
-.btn {
-    margin-right: 8px;
-    margin-top: 5px;
+.logout {
+    border: none;
+    background: none;
+    color: rgba(255,255,255,.5);
 }
 
 
