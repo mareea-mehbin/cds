@@ -19,7 +19,7 @@ def login_view(request):
 
 def signup_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserCreationForm(data=request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)

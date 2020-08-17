@@ -12,8 +12,11 @@
 
 <body>
   <div class="container-fluid p-0">
-    <nav class="navbar sticky-top navbar-expand-sm bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
       <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+      <div class="navbar-brand d-md-none d-lg-none d-xl-none ml-auto">
+        {{ request.resolver_match.url_name|capfirst }}
+      </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -21,34 +24,39 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'about'%} active {% endif %}" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=" {% url 'upload' %} ">Upload</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'upload'%} active {% endif %}" href=" {% url 'upload' %} ">Upload</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'contact'%} active {% endif %}" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'criminals'%} active {% endif %}" href=" {% url 'criminals'%} ">Criminals</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 ml-auto">
           <input class="form-control mr-sm-2 bg-transparent" type="search" placeholder="Search for criminal..."
             aria-label="Search">
-          <button class="btn btn-outline-light" type="submit">Search</button>
+          <div class="mt-1 mt-md-0">
+            <button class="search btn btn-outline-light" type="submit">Search</button>
+          </div>
         </form>
         <ul class="navbar-nav">
           {% if user.is_authenticated %}
           <li class="nav-item">
             <form action=" {% url 'accounts:logout'%} " method="POST">
               {% csrf_token %}
-              <input type="submit" value="Logout">
+              <input class="logout" type="submit" value="Logout">
             </form>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'accounts:login' %}"> Sign In </a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'login'%} active {% endif %}" href="{% url 'accounts:login' %}"> Sign In </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=" {% url 'accounts:signup' %} "> Sign Up </a>
+            <a class="nav-link {% if request.resolver_match.url_name == 'signup'%} active {% endif %}" href=" {% url 'accounts:signup' %} "> Sign Up </a>
           </li>
           {% endif %}
         </ul>
@@ -57,6 +65,10 @@
   </div>
 
   {% block content %} {% endblock %}
+
+  <div class="jumbotron footer" style="margin-bottom:0">
+    <p>Designed by Mareea, Sachin & Eric</p>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
