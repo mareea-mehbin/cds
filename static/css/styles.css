@@ -16,7 +16,11 @@ body {
     background-color: #1976d2;
 }
 
-.btn {
+.navbar-brand {
+    padding-top: 0px;
+}
+
+search {
     border-color: #fcfcfc;
 }
 
