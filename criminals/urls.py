@@ -5,4 +5,5 @@ app_name = 'criminals'
 
 urlpatterns = [
     path('', views.display, name='criminals'),
+    path('search/', views.search, name='search'),
 ]

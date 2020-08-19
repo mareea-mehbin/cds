@@ -36,13 +36,16 @@
             <a class="nav-link {% if request.resolver_match.url_name == 'criminals'%} active {% endif %}" href=" {% url 'criminals:criminals'%} ">Criminals</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0 ml-auto">
-          <input class="form-control mr-sm-2 bg-transparent" type="search" placeholder="Search for criminal..."
+        <!-- Quick Search --> 
+        <form class="form-inline my-2 my-lg-0 ml-auto" action=" {% url 'criminals:search'%} " method="GET">
+          {% csrf_token %}
+          <input class="form-control mr-sm-2 bg-transparent" type="search" name="search" placeholder="Search for criminal..."
             aria-label="Search">
           <div class="mt-1 mt-md-0">
             <button class="search btn btn-outline-light" type="submit">Search</button>
           </div>
         </form>
+        <!-- Login Status -->
         <ul class="navbar-nav">
           {% if user.is_authenticated %}
           <li class="nav-item">
