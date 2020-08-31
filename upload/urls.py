@@ -16,6 +16,8 @@ Including another URLconf
 from django.urls import path, include
 from . import views
 
+app_name = 'upload'
+
 urlpatterns = [
-    path('', views.upload_entry, name="upload"),
+    path('', views.upload_entry, name='upload'),
 ]
