@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'contactus',
     'accounts',
     'criminals',
+    'smart_selects',
 ]
 
 MIDDLEWARE = [

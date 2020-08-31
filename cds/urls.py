@@ -21,6 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('chaining/', include('smart_selects.urls')),
     path('', views.home, name='home'),
     path('upload/', include('upload.urls')),
     path('contact/', include('contactus.urls')),
