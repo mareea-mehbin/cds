@@ -22,8 +22,7 @@ class Criminal(models.Model):
     name = models.CharField(max_length=30)
     phys_desc = models.CharField(blank=True, max_length=250)
     state = models.ForeignKey('States', on_delete=models.CASCADE, default=11)
-    #city = models.ForeignKey('Cities', on_delete=models.CASCADE, default=709)
-    country = ChainedForeignKey(
+    city = ChainedForeignKey(
         Cities,
         chained_field="state",
         chained_model_field="state",
@@ -37,4 +36,4 @@ class Criminal(models.Model):
         return self.name
     
     def location(self):
-        return self.city + ', ' + self.state
+        return self.city.name + ', ' + self.state.name
