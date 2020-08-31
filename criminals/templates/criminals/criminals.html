@@ -1,0 +1,17 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+<form action="{% url 'criminals:search' %}", method="GET">
+
+    {% csrf_token %}
+
+    {{ advancedSearch }}
+
+    <input type="submit" value="Search">
+
+</form>
+
+{% block results %} {% endblock results %}
+
+{% endblock %}
