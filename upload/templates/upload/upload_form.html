@@ -4,6 +4,17 @@
 
 {% block content %}
 
+    <form action="{% url 'criminals:search' %}", method="GET">
+
+        {% csrf_token %}
+
+        {{ uploadForm.media.js }}
+        {{ uploadForm.as_p}}
+
+        <input type="submit" value="Search">
+
+    </form>
+
     Congrats user
 
 {% endblock %}
