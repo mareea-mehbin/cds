@@ -24,38 +24,41 @@
 </head>
 
 <body>
-  <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-      <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+  
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}"><img src="{% static 'images/kiroku2.png' %}" alt="" /></a>
       <div class="navbar-brand d-md-none d-lg-none d-xl-none ml-auto">
         {{ request.resolver_match.url_name|capfirst }}
       </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <!--<span class="navbar-toggler-icon"></span>-->
+        <i class="fas fa-bars ml-1"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'about'%} active {% endif %}" href="#">About</a>
+            <a class="nav-link js-scroll-trigger {% if request.resolver_match.url_name == 'about'%} active {% endif %}" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'upload'%} active {% endif %}" href=" {% url 'upload:upload' %} ">Upload</a>
+            <a class="nav-link  {% if request.resolver_match.url_name == 'upload'%} active {% endif %}" href=" {% url 'upload:upload' %} ">Upload</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'contact'%} active {% endif %}" href="{% url 'contact:contact' %}">Contact Us</a>
+            <a class="nav-link js-scroll-trigger {% if request.resolver_match.url_name == 'contact'%} active {% endif %}" href="{% url 'contact:contact' %}">Contact Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'criminals' or request.resolver_match.url_name == 'search' %} active {% endif %}" href=" {% url 'criminals:criminals'%} ">Criminals</a>
           </li>
         </ul>
+        <!-- Navbar Right Side -->
         <!-- Quick Search --> 
         <form class="form-inline my-2 my-lg-0 ml-auto" action=" {% url 'criminals:search'%} " method="GET">
           {% csrf_token %}
-          <input class="form-control mr-sm-2 bg-transparent" type="search" name="search" placeholder="Search for criminal..."
+          <input class="form-control mr-sm-2 bg-transparent"  type="search" name="search" placeholder="Search for criminal..."
             aria-label="Search">
           <div class="mt-1 mt-md-0">
-            <button class="search btn btn-outline-light" type="submit">Search</button>
+            <button class="search btn btn-outline-light text-uppercase" type="submit">Search</button>
           </div>
         </form>
         <!-- Login Status -->
@@ -69,16 +72,17 @@
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'login'%} active {% endif %}" href="{% url 'accounts:login' %}"> Sign In </a>
+            <a class="nav-link text-uppercase {% if request.resolver_match.url_name == 'login'%} active {% endif %}" href="{% url 'accounts:login' %}"> Sign In </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'signup'%} active {% endif %}" href=" {% url 'accounts:signup' %} "> Sign Up </a>
+            <a class="nav-link text-uppercase {% if request.resolver_match.url_name == 'signup'%} active {% endif %}" href=" {% url 'accounts:signup' %} "> Sign Up </a>
           </li>
           {% endif %}
         </ul>
       </div>
+      </div>
     </nav>
-  </div>
+  
 
   {% block content %} {% endblock %}
 
