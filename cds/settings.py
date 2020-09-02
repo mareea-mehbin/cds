@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# For chained selects from smart_selects
+USE_DJANGO_JQUERY = True
+
 
 # Application definition
 
