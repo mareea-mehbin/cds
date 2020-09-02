@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <form action="{% url 'criminals:search' %}", method="GET">
+    <form action="{% url 'upload:upload' %}", method="POST">
 
         {% csrf_token %}
 
