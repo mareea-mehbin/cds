@@ -40,13 +40,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger {% if request.resolver_match.url_name == 'about'%} active {% endif %}" href="#services">About</a>
+            <a class="nav-link js-scroll-trigger {% if request.resolver_match.url_name == 'about'%} active {% endif %}" {% if request.resolver_match.url_name == 'home' %} href="#services" {% else %} href="{% url 'home'%}#services" {% endif %} >About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link  {% if request.resolver_match.url_name == 'upload'%} active {% endif %}" href=" {% url 'upload:upload' %} ">Upload</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger {% if request.resolver_match.url_name == 'contact'%} active {% endif %}" href="#contact" >Contact Us</a> <!-- href="{% url 'contact:contact' %}"-->
+            <a class="nav-link js-scroll-trigger {% if request.resolver_match.url_name == 'contact'%} active {% endif %}" {% if request.resolver_match.url_name == 'home' %} href="#contact" {% else %} href="{% url 'home'%}#contact" {% endif %} >Contact Us</a> <!-- href="{% url 'contact:contact' %}"-->
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'criminals' or request.resolver_match.url_name == 'search' %} active {% endif %}" href=" {% url 'criminals:criminals'%} ">Criminals</a>
