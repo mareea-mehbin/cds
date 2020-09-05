@@ -1,6 +1,6 @@
 {% extends 'base_template.html' %}
 
-{% block title %} Criminal Database {% endblock %}
+{% block title %} Kiroku - Criminal Database {% endblock %}
 {% block pagetitle %} Home {% endblock %}
 
 {% block content %}
@@ -24,28 +24,37 @@
             <p>This is a description for the first slide.</p>
           </div>
           <div class="signin">
-            <div class="half-circle">sign in</div>
-            <hr class="semicircle">
-            <div class="inverted-half-circle">sign up</div>
-            <ul class="navbar-nav">
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <form action=" {% url 'accounts:logout'%} " method="POST">
-              {% csrf_token %}
-              <input class="logout" type="submit" value="Logout">
-            </form>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link text-uppercase {% if request.resolver_match.url_name == 'login'%} active {% endif %}" href="{% url 'accounts:login' %}"> Sign In </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase {% if request.resolver_match.url_name == 'signup'%} active {% endif %}" href=" {% url 'accounts:signup' %} "> Sign Up </a>
-          </li>
-          {% endif %}
-        </ul>
+            <!-- <div class="half-circle">sign in</div>
 
-          </div>
+            <hr class="semicircle">
+
+            <div class="inverted-half-circle">sign up</div> -->
+
+                <ul class="navbar-nav">
+                  <!-- {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <form action=" {% url 'accounts:logout'%} " method="POST">
+                      {% csrf_token %}
+                      <input class="logout" type="submit" value="Logout">
+                    </form>
+                  </li>-->
+                  {% if not user.is_authenticated %}
+                  <div class="half-circle">
+                  <li class="nav-item">
+                    <a class="nav-link text-uppercase {% if request.resolver_match.url_name == 'login'%} active {% endif %}" href="{% url 'accounts:login' %}"> Sign In </a>
+                  </li>
+                  </div>
+
+                  <hr class="semicircle">
+
+                  <div class="inverted-half-circle">
+                  <li class="nav-item">
+                    <a class="nav-link text-uppercase {% if request.resolver_match.url_name == 'signup'%} active {% endif %}" href=" {% url 'accounts:signup' %} "> Sign Up </a>
+                  </li>
+                  </div>
+                  {% endif %}
+                </ul>
+            </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
         <div class="carousel-item" style="background-image: url('static/images/1.jpg')">
