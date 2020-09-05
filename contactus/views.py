@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from .forms import ContactForm
 
 # Create your views here.
 def contact(request):
     if (request.method == 'POST'):
-        return HttpResponse("submitted")
-    return render(request, 'contactus/contact.html')
+        form = ContactForm(request.get.POST)
+    else:
+        form = ContactForm()
+    return render(request, 'contactus/contact.html', {'contactForm': form})
