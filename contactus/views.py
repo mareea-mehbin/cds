@@ -1,10 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ContactForm
+from django.urls import reverse
 
 # Create your views here.
 def contact(request):
-    if (request.method == 'POST'):
-        form = ContactForm(request.get.POST)
-    else:
-        form = ContactForm()
-    return render(request, 'contactus/contact.html', {'contactForm': form})
+    pass
