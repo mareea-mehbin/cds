@@ -64,7 +64,6 @@
         </form> -->
 
 
-        <!-- Login Status 
         <ul class="navbar-nav">
           {% if user.is_authenticated %}
           <li class="nav-item">
@@ -73,15 +72,8 @@
               <input class="logout" type="submit" value="Logout">
             </form>
           </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link text-uppercase {% if request.resolver_match.url_name == 'login'%} active {% endif %}" href="{% url 'accounts:login' %}"> Sign In </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase {% if request.resolver_match.url_name == 'signup'%} active {% endif %}" href=" {% url 'accounts:signup' %} "> Sign Up </a>
-          </li>
           {% endif %}
-        </ul> -->
+        </ul>
       </div>
       </div>
     </nav> 
