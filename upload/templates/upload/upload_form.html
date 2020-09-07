@@ -4,17 +4,67 @@
 
 {% block content %}
 
-    <form action="{% url 'upload:upload' %}", method="POST">
+<form action="{% url 'upload:upload' %}" , method="POST" class="form-horizontal">
 
-        {% csrf_token %}
+  {% csrf_token %}
 
-        {{ uploadForm.media.js }}
-        {{ uploadForm.as_p }}
+  {{ uploadForm.media.js }}
 
-        <input type="submit" value="Search">
+  <h2 class="text-center">Sample Form</h2>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-md-10 mx-auto">
+        <form>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              {{ uploadForm.name.errors }}
+              <label for="{{ uploadForm.name.id_for_label }}">First name</label>
+              {{ uploadForm.name }}
+            </div>
+            <div class="col-sm-6">
+              <label for="inputLastname">Last name</label>
+              <input type="text" class="form-control" id="inputLastname" placeholder="Last name">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              {{ uploadForm.age.errors }}
+              <label for="{{ uploadForm.age.id_for_label }}">Age</label>
+              {{ uploadForm.age }}
+            </div>
+            <div class="col-sm-6">
+              <label for="inputAddressLine2">Address (Line 2)</label>
+              <input type="text" class="form-control" id="inputAddressLine2" placeholder="Line 2">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <label for="inputCity">City</label>
+              <input type="text" class="form-control" id="inputCity" placeholder="City">
+            </div>
+            <div class="col-sm-3">
+              <label for="inputState">State</label>
+              <input type="text" class="form-control" id="inputState" placeholder="State">
+            </div>
+            <div class="col-sm-3">
+              <label for="inputPostalCode">Postal Code</label>
+              <input type="text" class="form-control" id="inputPostalCode" placeholder="Postal Code">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <label for="inputContactNumber">Contact Number</label>
+              <input type="number" class="form-control" id="inputContactNumber" placeholder="Contact Number">
+            </div>
+            <div class="col-sm-6">
+              <label for="inputWebsite">Website</label>
+              <input type="text" class="form-control" id="inputWebsite" placeholder="Website">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary px-4 float-left">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
-    </form>
-
-    Congrats user
-
-{% endblock %}
+  {% endblock %}
