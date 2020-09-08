@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.urls import path, include
 from . import views
+from .views import UploadView
 
 app_name = 'upload'
 
 urlpatterns = [
-    path('', views.upload_entry, name='upload'),
+    path('', UploadView.as_view(), name='upload'),
 ]
