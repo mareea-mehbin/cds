@@ -46,7 +46,7 @@
             <a class="nav-link  {% if request.resolver_match.url_name == 'upload'%} active {% endif %}" href=" {% url 'upload:upload' %} ">Upload</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger {% if request.resolver_match.url_name == 'contact'%} active {% endif %}" {% if request.resolver_match.url_name == 'home' %} href="#contact" {% else %} href="{% url 'home'%}#contact" {% endif %} >Contact Us</a> <!-- href="{% url 'contact:contact' %}"-->
+            <a class="nav-link js-scroll-trigger {% if request.resolver_match.url_name == 'contact'%} active {% endif %}" href="{% url 'contactus:contact'%}">Contact Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'criminals' or request.resolver_match.url_name == 'search' %} active {% endif %}" href=" {% url 'criminals:criminals'%} ">Criminals</a>

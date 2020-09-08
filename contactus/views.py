@@ -4,4 +4,6 @@ from django.urls import reverse
 
 # Create your views here.
 def contact(request):
-    pass
+    if request.method == 'GET':
+        form = ContactForm()
+    return render(request, 'contactus/contact.html', {'contactForm': form})
