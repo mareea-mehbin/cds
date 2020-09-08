@@ -8,7 +8,7 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading text-muted"> Reach out to us for any additional information / discrepancy </h3>
         </div>
         <form action={% url 'contactus:contact' %} method="POST" id="contactForm" name="sentMessage">
             {% csrf_token %}
@@ -26,12 +26,14 @@
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group mb-md-0">
+                        {{ contactForm.phone.errors }}
                         {{ contactForm.phone }}
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-group-textarea mb-md-0">
+                        {{ contactForm.message.errors }}
                         {{ contactForm.message }}
                         <p class="help-block text-danger"></p>
                     </div>
