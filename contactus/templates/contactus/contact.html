@@ -10,7 +10,7 @@
             <h2 class="section-heading text-uppercase">Contact Us</h2>
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
-        <form action={% url 'home' %} method="POST" id="contactForm" name="sentMessage">
+        <form action={% url 'contactus:contact' %} method="POST" id="contactForm" name="sentMessage">
             {% csrf_token %}
 
             <div class="row align-items-stretch mb-5">

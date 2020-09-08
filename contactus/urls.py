@@ -16,9 +16,10 @@ Including another URLconf
 
 from django.urls import path
 from . import views
+from .views import ContactFormView
 
 app_name = 'contactus'
 
 urlpatterns = [
-    path('', views.contact, name='contact'),
+    path('', ContactFormView.as_view(), name='contact'),
 ]

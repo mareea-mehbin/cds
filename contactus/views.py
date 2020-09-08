@@ -1,9 +1,18 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from django.urls import reverse
+from django.views import View
 
 # Create your views here.
-def contact(request):
-    if request.method == 'GET':
+class ContactFormView(View):
+    def get(self, request):
         form = ContactForm()
-    return render(request, 'contactus/contact.html', {'contactForm': form})
+        return render(request, 'contactus/contact.html', {'contactForm': form})
+    
+    def post(self, request):
+        form = ContactForm(request.POST)
+        if (form.is_valid()):
+            print("valid")
+            return redirect('contactus:contact')
+        else:
+            return render(request, 'contactus/contact.html', {'contactForm': form})
