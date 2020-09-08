@@ -12,7 +12,7 @@ class ContactFormView(View):
     def post(self, request):
         form = ContactForm(request.POST)
         if (form.is_valid()):
-            print("valid")
+            new_message = form.save()
             return redirect('contactus:contact')
         else:
             return render(request, 'contactus/contact.html', {'contactForm': form})
