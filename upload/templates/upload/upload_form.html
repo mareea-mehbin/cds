@@ -8,7 +8,9 @@
 
   {% csrf_token %}
 
-  {{ uploadForm.media.js }}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="/static/smart-selects/admin/js/chainedfk.js"></script>
+<script src="/static/smart-selects/admin/js/bindfields.js"></script>
 
   
   <div class="container py-5">
@@ -23,8 +25,9 @@
               {{ uploadForm.name }}
             </div>
             <div class="col-sm-6">
-              <label for="inputLastname">Last name</label>
-              <input type="text" class="form-control" id="inputLastname" placeholder="Last name">
+              {{ uploadForm.physical_description.errors }}
+              <label for="{{ uploadForm.physical_description.id_for_label }}">Physical Description</label>
+              {{ uploadForm.physical_description }}
             </div>
           </div>
           <div class="form-group row">
@@ -34,32 +37,37 @@
               {{ uploadForm.age }}
             </div>
             <div class="col-sm-6">
-              <label for="inputAddressLine2">Address (Line 2)</label>
-              <input type="text" class="form-control" id="inputAddressLine2" placeholder="Line 2">
+              {{ uploadForm.date.errors }}
+              <label for=" {{ uploadForm.date.id_for_label }} ">Crime committed on</label>
+              {{ uploadForm.date }}
             </div>
           </div>
           <div class="form-group row">
             <div class="col-sm-6">
-              <label for="inputCity">City</label>
-              <input type="text" class="form-control" id="inputCity" placeholder="City">
+              {{ uploadForm.crime_type.errors }}
+              <label for=" {{ uploadForm.crime_type.id_for_label }}">Crime Type</label>
+              {{ uploadForm.crime_type }}
             </div>
             <div class="col-sm-3">
-              <label for="inputState">State</label>
-              <input type="text" class="form-control" id="inputState" placeholder="State">
+              {{ uploadForm.state.errors }}
+              <label for="{{ uploadForm.state.id_for_label }}">State</label>
+              {{ uploadForm.state }}
             </div>
             <div class="col-sm-3">
-              <label for="inputPostalCode">Postal Code</label>
-              <input type="text" class="form-control" id="inputPostalCode" placeholder="Postal Code">
+              <label for="inputPostalCode">City</label>
+              {{ uploadForm.city }}
             </div>
           </div>
           <div class="form-group row">
             <div class="col-sm-6">
-              <label for="inputContactNumber">Contact Number</label>
-              <input type="number" class="form-control" id="inputContactNumber" placeholder="Contact Number">
+              {{ uploadForm.arresting_agency.errors }}
+              <label for="uploadForm.arresting_agency.id_for_label">Arresting Agency</label>
+              {{ uploadForm.arresting_agency }}
             </div>
             <div class="col-sm-6">
-              <label for="inputWebsite">Website</label>
-              <input type="text" class="form-control" id="inputWebsite" placeholder="Website">
+              {{ uploadForm.photo.errors }}
+              <label for="uploadForm.photo.id_for_label">Photo</label>
+              {{ uploadForm.photo }}
             </div>
           </div>
           <button type="submit" class="btn btn-primary px-4 float-left">Save</button>
