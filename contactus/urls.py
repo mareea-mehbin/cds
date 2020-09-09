@@ -22,4 +22,5 @@ app_name = 'contactus'
 
 urlpatterns = [
     path('', ContactFormView.as_view(), name='contact'),
+    path('success/', views.success, name='success')
 ]
