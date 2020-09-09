@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
-
 from .models import Criminal
 from .forms import AdvancedSearch
 from django.views import View
+from django.views.generic.detail import DetailView
 
 class CriminalsView(View):
     def get(self, request):
@@ -24,5 +24,11 @@ class CriminalsView(View):
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
 
-        return render(request, 'criminals/results.html', {'criminals': page_obj, 'advancedSearch': form})
+        return render(request, 'criminals/criminals.html', {'criminals': page_obj, 'advancedSearch': form})
 
+class CriminalDetailView(DetailView):
+    model = Criminal
+
+    def get(self, request, pk):
+        criminal = self.model.objects.get(pk=pk)
+        return render(request, 'criminals/criminal_detail.html', {'criminal': criminal})
