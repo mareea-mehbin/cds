@@ -13,6 +13,9 @@ class ContactFormView(View):
         form = ContactForm(request.POST)
         if (form.is_valid()):
             new_message = form.save()
-            return redirect('contactus:contact')
+            return redirect('contactus:success')
         else:
             return render(request, 'contactus/contact.html', {'contactForm': form})
+
+def success(request):
+    return render(request, 'contactus/success.html')
