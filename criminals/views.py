@@ -20,7 +20,7 @@ class CriminalsView(View):
             criminals = Criminal.objects.all()
         
         # Pagination
-        paginator = Paginator(criminals, 2)
+        paginator = Paginator(criminals, 6)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
 

@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<div class="container emp-profile">
+
 <form action="{% url 'criminals:search' %}", method="GET">
 
     {% csrf_token %}
@@ -56,5 +58,7 @@
 {% else %}
 not found
 {% endif %}
+
+</div>
 
 {% endblock %}
