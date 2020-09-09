@@ -11,7 +11,8 @@ class UploadView(View):
         return render(request, 'upload/upload_form.html', {'uploadForm': form})
 
     def post(self, request):
-        form = UploadCriminalForm(request.POST)
+        form = UploadCriminalForm(request.POST, request.FILES)
+        print(request.FILES)
         if form.is_valid():
             new_upload = form.save()
             return redirect('upload:upload')

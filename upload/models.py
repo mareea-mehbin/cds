@@ -33,4 +33,4 @@ class UploadCriminal(models.Model):
         sort=True)
     crime_type = models.CharField(max_length=30)
     arresting_agency = models.CharField(max_length=30)
-    photo = models.ImageField(blank=True, upload_to='criminals/', default='criminals/missing.jpeg')
+    photo = models.ImageField(upload_to='criminals/', blank=True, default='criminals/missing.jpeg')
