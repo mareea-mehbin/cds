@@ -15,7 +15,6 @@
     type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
 
-
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
   <link rel="icon" href="{%static 'images/balance.ico' %}">
@@ -23,7 +22,6 @@
 </head>
 
 <body>
-
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="{% url 'home' %}"><img src="{% static 'images/kiroku.png' %}"
@@ -77,13 +75,7 @@
     </div>
   </nav>
 
-
   {% block content %} {% endblock %}
-  <!--
-  <div class="jumbotron footer" style="margin-bottom:0">
-    <p>Designed by Eric, Sachin & Mareea</p>
-  </div>
--->
 
   <!-- Bootstrap JS-->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
