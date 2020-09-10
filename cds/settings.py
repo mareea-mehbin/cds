@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['criminaldbms.herokuapp.com', '127.0.0.1', 'localhost']
 
+# For chained selects from smart_selects
+USE_DJANGO_JQUERY = True
+
 
 # Application definition
 
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     'contactus',
     'accounts',
     'criminals',
+    'smart_selects',
 ]
 
 MIDDLEWARE = [
