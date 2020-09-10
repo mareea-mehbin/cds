@@ -26,7 +26,7 @@ SECRET_KEY = 'bg4@tjc3(uhje(7eh!_-r7m-$(w15pw%ogjde0))-p0$=_l@)m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['criminaldbms.herokuapp.com', '127.0.0.1', 'localhost']
 
 # For chained selects from smart_selects
 USE_DJANGO_JQUERY = True
@@ -56,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'cds.urls'
@@ -128,6 +129,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
