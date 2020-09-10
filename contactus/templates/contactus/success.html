@@ -9,9 +9,19 @@
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading" style="color: white; height: 700px">Submitted ! Thank you</h3>
+            <h3 class="section-subheading" style="color: white; height: 700px">
+            {% if messages %}
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            {% else %}
+                Are you sure this is the page you're looking for ?
+            {% endif %}
+            </h3>
         </div>
     </div>
 </section>
+
+
 
 {% endblock %}
