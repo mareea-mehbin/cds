@@ -9,7 +9,9 @@ class CriminalsView(ListView):
     template_name = 'criminals/criminals.html'
     form_class = AdvancedSearch
     model = Criminal
+    paginate_by = 6
     context_object_name = 'criminals'
+    
 
     def get_queryset(self):
         name = self.kwargs.get('name', None)
@@ -20,29 +22,10 @@ class CriminalsView(ListView):
             return self.model.objects.filter(name__contains=form.cleaned_data['name'])
         return self.model.objects.all()
 
-    def get(self, request):
-        form = AdvancedSearch()
-        criminals = Criminal.objects.all()
-
-    """ def get(self, request):
-        # If advanced search
-        if (request.GET.get('name')):
-                form = AdvancedSearch(request.GET)
-                if (form.is_valid()):
-                    criminals = Criminal.objects.filter(name__contains=form.cleaned_data['name'])
-                else:
-                    criminals = Criminal.objects.all()
-        # If default view
-        else:
-            form = AdvancedSearch()
-            criminals = Criminal.objects.all()
-        
-        # Pagination
-        paginator = Paginator(criminals, 6)
-        page_number = request.GET.get('page')
-        page_obj = paginator.get_page(page_number)
-
-        return render(request, 'criminals/criminals.html', {'criminals': page_obj, 'advancedSearch': form}) """
+    def get_context_data(self, **kwargs):
+        context = super(CriminalsView, self).get_context_data(**kwargs)
+        context['advancedSearch'] = AdvancedSearch()
+        return context
 
 class CriminalDetailView(DetailView):
     model = Criminal
