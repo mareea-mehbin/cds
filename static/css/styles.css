@@ -112,7 +112,7 @@ img::-moz-selection {
     padding-top: 10px;
     padding-bottom: 10px;
     border: none;
-    background-color: transparent;
+    background-color: #343a40;
     transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
   }
   #mainNav .navbar-brand {
@@ -857,3 +857,12 @@ section#contact form#contactForm :-ms-input-placeholder {
 .sampleform {
   margin-top: 5rem;
 }
+
+/*#region nav */
+@media (max-width: 768px) {
+
+  body {
+    margin-top: 51px;
+  }
+}
+/*#endregion nav */
