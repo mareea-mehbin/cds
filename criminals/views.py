@@ -29,4 +29,4 @@ class CriminalsView(ListView):
 
 class CriminalDetailView(DetailView):
     model = Criminal
-    template_name = 'criminals/criminal_detail.html's
+    template_name = 'criminals/criminal_detail.html'
