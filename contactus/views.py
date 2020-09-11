@@ -3,21 +3,19 @@ from .forms import ContactForm
 from django.urls import reverse
 from django.views import View
 from django.contrib import messages
+from django.views.generic import FormView
+from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
-class ContactFormView(View):
-    def get(self, request):
-        form = ContactForm()
-        return render(request, 'contactus/contact.html', {'contactForm': form})
-    
-    def post(self, request):
-        form = ContactForm(request.POST)
-        if (form.is_valid()):
-            new_message = form.save()
-            messages.success(request, 'Thank you for contacting us ! We will be with you shortly')
-            return redirect('contactus:success')
-        else:
-            return render(request, 'contactus/contact.html', {'contactForm': form})
+class ContactView(SuccessMessageMixin, FormView):
+    template_name = 'contactus/contact.html'
+    form_class = ContactForm
+    success_url = 'success/'
+    success_message = "Submitted, Thank You !"
+
+    def form_valid(self, form):
+        new_message = form.save()
+        return super().form_valid(form)
 
 def success(request):
     return render(request, 'contactus/success.html')
