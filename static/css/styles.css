@@ -876,3 +876,17 @@ section#contact form#contactForm :-ms-input-placeholder {
   }
 }
 /*#endregion nav */
+
+/*#region imageslider*/
+.s1 {
+  background-image: url('../images/5.jpg');
+}
+
+.s2 {
+  background-image: url('../images/1.jpg');
+}
+
+.s3 {
+  background-image: url('../images/7.jpg');
+}
+/*#endregion */
